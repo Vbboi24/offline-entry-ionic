@@ -8,6 +8,8 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SiteInfoPage } from '../pages/site-info/site-info';
+import { CreateNewLogPage } from '../pages/create-new-log/create-new-log';
+import { UserProfilePage } from '../pages/user-profile/user-profile';
 
 
 @Component({
@@ -31,8 +33,10 @@ export class MyApp {
     // set our app's pages
     this.pages = [
       { title: 'Home', component: HelloIonicPage },
+      { title: 'New Activity', component: CreateNewLogPage},
       { title: 'Manage Activities', component: ListPage },
-      { title: 'Site Information', component: SiteInfoPage}
+      { title: 'Site Information', component: SiteInfoPage},
+      {title: 'My Profile', component : UserProfilePage}
     ];
   }
 

@@ -10,16 +10,46 @@
 
 <ion-content padding>
 
-    <h3>Hello User</h3>
+    <h5>Hello User</h5>
+    <p>
 
-    <p>
-        This starter project is our way of helping you get a functional app running in record time.
     </p>
-    <p>
-        Follow along on the tutorial section of the Ionic docs!
-    </p>
-    <p>
-        <button ion-button color="primary" menuToggle>Toggle Menu</button>
-    </p>
+    <div>
+        <button ion-button color="primary" clear (click)="presentLoading()">Refresh Data</button>
+        <div style="display: block;">
+            <ion-card>
+                <ion-card-header>
+                    Activity carried out
+                </ion-card-header>
+                <ion-card-content>
+                    <canvas baseChart width="300" height="400" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+                </ion-card-content>
+            </ion-card>
 
+        </div>
+    </div>
+    <div>
+        <div style="display: block">
+            <ion-card>
+                <ion-card-header>
+                    Activity Submission
+                </ion-card-header>
+                <ion-card-content>
+                    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+                </ion-card-content>
+            </ion-card>
+
+        </div>
+    </div>
+    <div style="display: block">
+        <ion-card>
+            <ion-card-header>
+                Submission Distribution
+            </ion-card-header>
+            <ion-card-content>
+                <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+            </ion-card-content>
+        </ion-card>
+
+    </div>
 </ion-content>

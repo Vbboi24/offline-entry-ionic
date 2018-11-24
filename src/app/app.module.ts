@@ -12,6 +12,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SignaturePadModule } from 'angular2-signaturepad';
 import { SiteInfoPage } from '../pages/site-info/site-info';
+import {CreateNewLogPage} from '../pages/create-new-log/create-new-log';
+import { UserProfilePage} from '../pages/user-profile/user-profile';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -21,11 +24,14 @@ import { SiteInfoPage } from '../pages/site-info/site-info';
     ListPage,
     NavigationDetailsPage,
     SignaturePage,
-    SiteInfoPage
+    CreateNewLogPage,
+    SiteInfoPage,
+    UserProfilePage
   ],
   imports: [
     BrowserModule,
     SignaturePadModule,
+    ChartsModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -36,7 +42,9 @@ import { SiteInfoPage } from '../pages/site-info/site-info';
     ListPage,
     SignaturePage,
     NavigationDetailsPage,
-    SiteInfoPage
+    CreateNewLogPage,
+    SiteInfoPage,
+    UserProfilePage
   ],
   providers: [
     StatusBar,
