@@ -23,12 +23,12 @@ export class SignaturePage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
   drawCancel() {
-    this.navCtrl.push(ListPage);
+    this.navCtrl.pop();
   }
 
    drawComplete() {
     this.signatureImage = this.signaturePad.toDataURL();
-    this.navCtrl.push(ListPage, {signatureImage: this.signatureImage});
+    this.navCtrl.pop();
   }
 
   drawClear() {

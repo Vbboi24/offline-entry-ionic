@@ -8,25 +8,78 @@
 </ion-header>
 
 <ion-content>
-    <ion-card>
-        <ion-card-header *ngIf="selectedItem">
-            <ion-icon [name]="selectedItem.icon"></ion-icon>
-            {{selectedItem.title}}
-            <ion-badge item-end *ngIf="selectedItem.badge" color="danger">Pending</ion-badge>
-            <ion-badge item-end *ngIf="!selectedItem.badge" color="primary">Submitted</ion-badge>
-        </ion-card-header>
-        <ion-card-content>
-            {{selectedItem.note}}{{selectedItem.date}}
-        </ion-card-content>
-        <ion-item>
-            <button ion-button *ngIf="selectedItem.badge" item-start (click)="doConfirm()">Save</button>
-            <button ion-button *ngIf="selectedItem.badge" outline>Submit</button>
-            <button ion-button *ngIf="!selectedItem.badge">Details</button>
-        </ion-item>
-    </ion-card>
-    <ion-list>
-        <button ion-item *ngFor="let item of items" (click)="openNavDetailsPage(item)" icon-start>
-              {{ item.title }}
-            </button>
-    </ion-list>
+    <ion-toolbar no-border-top>
+        <ion-segment [(ngModel)]="activity">
+            <ion-segment-button value="basic">
+                Basic
+            </ion-segment-button>
+            <ion-segment-button value="incentive">
+                Incentive
+            </ion-segment-button>
+            <ion-segment-button value="approval">
+                Approval
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+    <div [ngSwitch]="activity">
+        <div *ngSwitchCase="'basic'">
+            <ion-card>
+                <ion-card-header *ngIf="selectedItem">
+                    <ion-icon [name]="selectedItem.icon"></ion-icon>
+                    {{selectedItem.title}}
+                    <ion-badge item-end *ngIf="selectedItem.badge" color="danger">Pending</ion-badge>
+                    <ion-badge item-end *ngIf="!selectedItem.badge" color="primary">Submitted</ion-badge>
+                </ion-card-header>
+                <ion-card-content>
+                    {{selectedItem.note}} {{selectedItem.date}}
+                </ion-card-content>
+                <ion-item>
+                    <button ion-button *ngIf="selectedItem.badge" item-start (click)="doConfirm()">Save</button>
+                    <button ion-button *ngIf="selectedItem.badge" outline>Submit</button>
+                    <button ion-button *ngIf="!selectedItem.badge">Details</button>
+                </ion-item>
+            </ion-card>
+            <ion-item>
+                <ion-label fixed>Site No.</ion-label>
+                <ion-input type="text" disabled value="#1208"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label fixed>Owner</ion-label>
+                <ion-input type="text" disabled value="Mohammad Shahin"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label fixed>Date</ion-label>
+                <ion-input type="text" disabled value="{{selectedItem.date}}"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Status</ion-label>
+                <ion-select [(ngModel)]="notifications" interface="action-sheet">
+                    <ion-option value="submitted">Submitted</ion-option>
+                    <ion-option value="pending">Pending</ion-option>
+                    <ion-option value="approved">Approved</ion-option>
+                    <ion-option value="rejected">Rejected</ion-option>
+                </ion-select>
+            </ion-item>
+        </div>
+
+        <ion-list *ngSwitchCase="'incentive'">
+            <ion-list-header>
+                Employee Information
+            </ion-list-header>
+            <button ion-item *ngFor="let item of items" (click)="openNavDetailsPage(item)" icon-start>
+                      {{ item.title }}
+                    </button>
+        </ion-list>
+        <ion-list *ngSwitchCase="'approval'">
+            <ion-list-header>
+                Employee Information
+            </ion-list-header>
+            <button ion-item *ngFor="let item of items" (click)="openNavDetailsPage(item)" icon-start>
+                          {{ item.title }}
+                        </button>
+        </ion-list>
+
+    </div>
+
+
 </ion-content>
