@@ -7,9 +7,11 @@ import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import {NavigationDetailsPage} from '../pages/item-details/item-details';
 import { ListPage } from '../pages/list/list';
-
+import { SignaturePage } from '../pages/signature/signature';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { SignaturePadModule } from 'angular2-signaturepad';
+import { SiteInfoPage } from '../pages/site-info/site-info';
 
 @NgModule({
   declarations: [
@@ -17,10 +19,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HelloIonicPage,
     ItemDetailsPage,
     ListPage,
-    NavigationDetailsPage
+    NavigationDetailsPage,
+    SignaturePage,
+    SiteInfoPage
   ],
   imports: [
     BrowserModule,
+    SignaturePadModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -29,7 +34,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HelloIonicPage,
     ItemDetailsPage,
     ListPage,
-    NavigationDetailsPage
+    SignaturePage,
+    NavigationDetailsPage,
+    SiteInfoPage
   ],
   providers: [
     StatusBar,
