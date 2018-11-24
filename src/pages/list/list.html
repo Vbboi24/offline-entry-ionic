@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>Activity Books</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list ion-item *ngFor="let item of items">
+        <ion-icon name="{{item.icon}}" item-left></ion-icon>
+        {{item.title}}
+        <ion-badge item-end *ngIf="item.badge" color="danger">Pending</ion-badge>
+        <ion-badge item-end *ngIf="!item.badge" color="primary">Submitted</ion-badge>
+        <div class="item-note">
+            <small>{{item.note}}</small>
+        </div>
+
+        <small>{{item.date}}</small>
+
+        <button ion-button item-right (click)="itemTapped($event, item)">
+          Show 
+        </button>
+        <button ion-button outline item-right (click)="openMenu()">
+            More 
+          </button>
+    </ion-list>
+</ion-content>

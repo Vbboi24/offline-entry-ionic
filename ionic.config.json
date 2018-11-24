@@ -1,0 +1,7 @@
+{
+  "name": "offlineData",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

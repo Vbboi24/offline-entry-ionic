@@ -1,0 +1,46 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            {{ item.title }}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-icon [name]="'logo-' + item.icon" [ngStyle]="{'color': item.color}"></ion-icon>
+    {{ item.description }}
+    <ion-list>
+        <ion-item>
+            <ion-label floating>Employee Name</ion-label>
+            <ion-input type="text" [(ngModel)]="item.title"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Employee Gender</ion-label>
+            <ion-input type="text" [(ngModel)]="item.id"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Activity Name</ion-label>
+            <ion-select [(ngModel)]="gaming" interface="popover">
+                <ion-option value="nes">Activity 1</ion-option>
+                <ion-option value="n64">Activity 2</ion-option>
+                <ion-option value="ps">Activity 3</ion-option>
+                <ion-option value="genesis">Activity 4</ion-option>
+                <ion-option value="saturn">Activity 5</ion-option>
+                <ion-option value="snes">Activity 6</ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <ion-list-header>
+            Incentive Information
+        </ion-list-header>
+        <ion-item>
+            <ion-label>Slide to Adjust</ion-label>
+            <ion-range min="0" max="8" step="1" pin="true" [(ngModel)]="contrast" color="secondary">
+                <ion-icon range-left small name="min"></ion-icon>
+                <ion-icon range-right name="add"></ion-icon>
+            </ion-range>
+        </ion-item>
+    </ion-list>
+</ion-content>

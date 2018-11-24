@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-navbar>
+        <button menuToggle *ngIf="!selectedItem">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>Activity Book Details</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <ion-card-header *ngIf="selectedItem">
+            <ion-icon [name]="selectedItem.icon"></ion-icon>
+            {{selectedItem.title}}
+            <ion-badge item-end *ngIf="selectedItem.badge" color="danger">Pending</ion-badge>
+            <ion-badge item-end *ngIf="!selectedItem.badge" color="primary">Submitted</ion-badge>
+        </ion-card-header>
+        <ion-card-content>
+            {{selectedItem.note}}{{selectedItem.date}}
+        </ion-card-content>
+        <ion-item>
+            <button ion-button *ngIf="selectedItem.badge" item-start (click)="doConfirm()">Save</button>
+            <button ion-button *ngIf="selectedItem.badge" outline>Submit</button>
+            <button ion-button *ngIf="!selectedItem.badge">Details</button>
+        </ion-item>
+    </ion-card>
+    <ion-list>
+        <button ion-item *ngFor="let item of items" (click)="openNavDetailsPage(item)" icon-start>
+                
+              {{ item.title }}
+            </button>
+    </ion-list>
+</ion-content>
