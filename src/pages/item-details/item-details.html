@@ -72,11 +72,61 @@
         </ion-list>
         <ion-list *ngSwitchCase="'approval'">
             <ion-list-header>
-                Employee Information
+                Timeline
             </ion-list-header>
-            <button ion-item *ngFor="let item of items" (click)="openNavDetailsPage(item)" icon-start>
-                          {{ item.title }}
-                        </button>
+            <ion-item>
+                <ion-card>
+                    <ion-card-header *ngIf="selectedItem">
+                        <ion-icon name="done-all" class="success"></ion-icon>
+                        Approved By Site Engineer
+                    </ion-card-header>
+                    <ion-card-content>
+                        <small>
+                                    Approved on 20-11-2018
+                            </small>
+                    </ion-card-content>
+                </ion-card>
+            </ion-item>
+            <ion-item>
+                <ion-card>
+                    <ion-card-header *ngIf="selectedItem">
+                        <ion-icon name="checkmark"></ion-icon>
+                        Approved By Area Foreman
+                    </ion-card-header>
+                    <ion-card-content>
+                        <small>
+                                    Approved on 19-11-2018
+                            </small>
+                    </ion-card-content>
+                </ion-card>
+            </ion-item>
+            <ion-item>
+                <ion-card>
+                    <ion-card-header *ngIf="selectedItem">
+                        <ion-icon [name]="selectedItem.icon"></ion-icon>
+                        Approved By Site Supervisor
+                    </ion-card-header>
+                    <ion-card-content>
+                        <small>
+                                Approved on 19-11-2018
+                        </small>
+                    </ion-card-content>
+                </ion-card>
+            </ion-item>
+            <ion-item>
+                <ion-card>
+                    <ion-card-header *ngIf="selectedItem">
+                        <ion-icon name="cloud-upload"></ion-icon>
+                        Submitted
+                    </ion-card-header>
+                    <ion-card-content>
+                        <small>
+                                Submitted on on 18-11-2018
+                                </small>
+                    </ion-card-content>
+                </ion-card>
+            </ion-item>
+
         </ion-list>
 
     </div>
