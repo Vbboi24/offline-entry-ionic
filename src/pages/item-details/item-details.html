@@ -67,8 +67,9 @@
                 Employee Information
             </ion-list-header>
             <button ion-item *ngFor="let item of items" (click)="openNavDetailsPage(item)" icon-start>
-                      {{ item.title }}
-                    </button>
+                      {{ item.title }} 
+            </button>
+
         </ion-list>
         <ion-list *ngSwitchCase="'approval'">
             <ion-list-header>
@@ -133,3 +134,8 @@
 
 
 </ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <ion-title>Total : 125.00 OMR</ion-title>
+    </ion-toolbar>
+</ion-footer>

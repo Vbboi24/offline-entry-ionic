@@ -15,5 +15,30 @@
 
 
 <ion-content padding>
-
+    <ion-list>
+        <ion-item>
+            <ion-label fixed>Site Name</ion-label>
+            <ion-input type="text" value="Customs Hq. Building"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Site No.</ion-label>
+            <ion-input type="text" value="#1208"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Project Name</ion-label>
+            <ion-input type="text" value="Construction Of New Customs Hq. Building"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Location</ion-label>
+            <ion-input type="text" value="Muscat, Oman"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Owner</ion-label>
+            <ion-input type="text" disabled value="Ali Khan"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Creation Date</ion-label>
+            <ion-datetime displayFormat="MMM DD, YYYY HH:mm" [(ngModel)]="myDate" placeholder="Enter Date"></ion-datetime>
+        </ion-item>
+    </ion-list>
 </ion-content>

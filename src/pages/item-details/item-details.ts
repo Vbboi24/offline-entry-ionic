@@ -1,18 +1,27 @@
 import { Component } from '@angular/core';
 
 import { NavController,Platform, NavParams, AlertController,ToastController,
-  ModalController,ViewController   } from 'ionic-angular';
-  import { SignaturePage} from '../signature/signature';
-  @Component({
+  ModalController,ViewController,LoadingController   } from 'ionic-angular';
+import { SignaturePage} from '../signature/signature';
+  
+@Component({
     templateUrl: './nav-details.html',
   })
   export class NavigationDetailsPage {
     item;
     public signatureImage : any;
     constructor(navParams: NavParams,
-      public modalController : ModalController,) {
+      public modalController : ModalController,
+      public loadingController : LoadingController) {
       this.item = navParams.data.item;
       this.signatureImage = navParams.get('signatureImage');;
+    }
+    presentLoading() {
+      const loader = this.loadingController.create({
+        content: "Fetching Norms & Calculating...",
+        duration: 2000
+      });
+      loader.present();
     }
     openSignatureModel(){
       setTimeout(() => {
@@ -22,7 +31,7 @@ import { NavController,Platform, NavParams, AlertController,ToastController,
   
     }
   }
-  @Component({
+@Component({
   selector: 'page-item-details',
   templateUrl:'item-details.html',
   
@@ -49,6 +58,11 @@ export class ItemDetailsPage {
         'area':'',
         'location of the building':'',
         'color': '#E63135',
+        'activity': 'activity1',
+        'p':'4',
+        'ep':'0',
+        'salary': '12.50',
+        'cardid': '040348ZAE33E81',
         'acknowledged': true
       },
       {
@@ -56,35 +70,62 @@ export class ItemDetailsPage {
         'id': '#EMP-91381',
         'area':'',
         'location of the building':'',
-        'acknowledged': false
+        'acknowledged': false,
+        'activity': 'activity1',
+        'p':'3',
+        'ep':'0',
+        'cardid': '040348ZAE33E82',
+        'salary': '10.50',
       },
       {
         'title': 'Sage Rodriguez',
         'id': '#EMP-017381',
         'area':'',
         'location of the building':'',
-        'acknowledged': true
+        'acknowledged': true,
+        'activity': 'activity5',
+        'p':'1',
+        'ep':'0',
+        'salary': '12.50',
+        'cardid': '040348HXS33E81',
       },
       {
         'title': 'Philip Chaney',
         'id': '#EMP-173131',
         'area':'',
         'location of the building':'',
-        'acknowledged': true
+        'acknowledged': true,
+        'activity': 'activity1',
+        'p':'0',
+        'ep':'4',
+        'salary': '42.50',
+        'cardid': '04R348ZAE33E81',
       },
       {
         'title': 'Doris Greene',
         'id': '#EMP-897388',
         'area':'',
         'location of the building':'',
-        'acknowledged': false
+        'acknowledged': false,
+        'activity': 'activity2',
+        'p':'2',
+        'ep':'0',
+        'salary': '6.50',
+        'cardid': '021348ZAE33E81',
+
       },
       {
         'title': 'Mason Porter',
         'id': '#EMP-00123',
         'area':'',
         'location of the building':'',
-        'acknowledged': false
+        'acknowledged': false,
+        'activity': 'activity1',
+        'p':'0',
+        'ep':'0',
+        'salary': '0.00',
+        'cardid': '042348ZAE33E81',
+
       }
     ]
   }

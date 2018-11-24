@@ -8,7 +8,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-create-new-log',
   templateUrl: 'create-new-log.html',
@@ -17,9 +16,7 @@ export class CreateNewLogPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreateNewLogPage');
   }
-
 }

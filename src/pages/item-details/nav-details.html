@@ -7,41 +7,87 @@
 </ion-header>
 <ion-content padding>
     <ion-list>
+        <ion-card>
+            <ion-item>
+                <ion-label color="primary" floating>Employee Name</ion-label>
+                <ion-input type="text" [(ngModel)]="item.title"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary" floating>Employee ID No.</ion-label>
+                <ion-input type="text" [(ngModel)]="item.id"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary" floating>Card UID</ion-label>
+                <ion-input type="text" [(ngModel)]="item.cardid"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary" floating>Activity Name</ion-label>
+                <ion-select [(ngModel)]="item.activity" interface="popover">
+                    <ion-option value="activity1">Activity 1</ion-option>
+                    <ion-option value="activity2">Activity 2</ion-option>
+                    <ion-option value="activity3">Activity 3</ion-option>
+                    <ion-option value="activity4">Activity 4</ion-option>
+                    <ion-option value="activity5">Activity 5</ion-option>
+                    <ion-option value="activity6">Activity 6</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary" floating>Start Time</ion-label>
+                <ion-datetime displayFormat="HH:mm:ss" [(ngModel)]="startTime"></ion-datetime>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary" floating>End Time</ion-label>
+                <ion-datetime displayFormat="HH:mm:ss" [(ngModel)]="endTime"></ion-datetime>
+            </ion-item>
+        </ion-card>
+    </ion-list>
+    <ion-list>
+        <ion-list-header>
+            Incentive Information : 1
+            <small>in terms of P0 to P8</small>
+        </ion-list-header>
         <ion-item>
-            <ion-label floating>Employee Name</ion-label>
-            <ion-input type="text" [(ngModel)]="item.title"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label floating>Employee ID No.</ion-label>
-            <ion-input type="text" [(ngModel)]="item.id"></ion-input>
-        </ion-item>
+            <ion-range min="0" max="8" step="1" pin="true" [(ngModel)]="item.p" color="primary">
+                <ion-icon range-left small name="min"></ion-icon>
+                <ion-icon range-right name="add"></ion-icon>
+            </ion-range>
 
+        </ion-item>
         <ion-item>
-            <ion-label>Activity Name</ion-label>
-            <ion-select [(ngModel)]="gaming" interface="popover">
-                <ion-option value="nes">Activity 1</ion-option>
-                <ion-option value="n64">Activity 2</ion-option>
-                <ion-option value="ps">Activity 3</ion-option>
-                <ion-option value="genesis">Activity 4</ion-option>
-                <ion-option value="saturn">Activity 5</ion-option>
-                <ion-option value="snes">Activity 6</ion-option>
-            </ion-select>
+            <ion-label color="primary" floating>Incentive</ion-label>
+            <ion-input type="text" disabled [(ngModel)]="item.p"></ion-input>
         </ion-item>
     </ion-list>
     <ion-list>
         <ion-list-header>
-            Incentive Information
+            Incentive Information : 2
+            <small>in terms of EP1 to EP4</small>
         </ion-list-header>
         <ion-item>
-            <ion-label>Slide to Adjust</ion-label>
-            <ion-range min="0" max="8" step="1" pin="true" [(ngModel)]="contrast" color="secondary">
+            <ion-range min="0" max="4" step="1" pin="true" [(ngModel)]="item.ep" color="primary">
                 <ion-icon range-left small name="min"></ion-icon>
                 <ion-icon range-right name="add"></ion-icon>
             </ion-range>
         </ion-item>
+        <ion-item>
+            <ion-label color="primary" floating>Incentive</ion-label>
+            <ion-input type="text" disabled [(ngModel)]="item.ep"></ion-input>
+        </ion-item>
     </ion-list>
-    <button ion-button full (click)="openSignatureModel()">
-            Open Signature
+    <ion-item>
+        <ion-label>Acknowledged</ion-label>
+        <ion-toggle checked="{{item.acknowledged}}"></ion-toggle>
+    </ion-item>
+    <button ion-button outline (click)="presentLoading()">
+            Calculate
+    </button>
+    <button ion-button (click)="openSignatureModel()" clear>
+            Acknowledge
     </button>
     <div><img [src]="signatureImage" *ngIf="signatureImage" /></div>
 </ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <ion-title>Total : {{item.salary}} OMR</ion-title>
+    </ion-toolbar>
+</ion-footer>
