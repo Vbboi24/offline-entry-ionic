@@ -15,7 +15,7 @@ import { SiteInfoPage } from '../pages/site-info/site-info';
 import {CreateNewLogPage} from '../pages/create-new-log/create-new-log';
 import { UserProfilePage} from '../pages/user-profile/user-profile';
 import { ChartsModule } from 'ng2-charts';
-
+import {CreateLogPage_2Page} from '../pages/create-log-page-2/create-log-page-2'
 @NgModule({
   declarations: [
     MyApp,
@@ -26,7 +26,8 @@ import { ChartsModule } from 'ng2-charts';
     SignaturePage,
     CreateNewLogPage,
     SiteInfoPage,
-    UserProfilePage
+    UserProfilePage,
+    CreateLogPage_2Page
   ],
   imports: [
     BrowserModule,
@@ -44,7 +45,8 @@ import { ChartsModule } from 'ng2-charts';
     NavigationDetailsPage,
     CreateNewLogPage,
     SiteInfoPage,
-    UserProfilePage
+    UserProfilePage,
+    CreateLogPage_2Page
   ],
   providers: [
     StatusBar,
