@@ -1,20 +1,18 @@
 import { Component } from '@angular/core';
-import { NavController,ModalController, NavParams, LoadingController } from 'ionic-angular';
-import {ModalPage} from '../modal/modal';
-import {EnterActivityPage} from '../enter-activity/enter-activity';
-import{PostAuthorizationPage} from '../post-authorization/post-authorization';
+import { NavController, NavParams } from 'ionic-angular';
+import {LoadingController} from 'ionic-angular';
 /**
- * Generated class for the CreateLogPage_2Page page.
+ * Generated class for the PostAuthorizationPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
 
 @Component({
-  selector: 'page-create-log-page-2',
-  templateUrl: 'create-log-page-2.html',
+  selector: 'page-post-authorization',
+  templateUrl: 'post-authorization.html',
 })
-export class CreateLogPage_2Page {
+export class PostAuthorizationPage {
   items: Array<{title: string, note: string, icon: string,date: Date,badge : boolean}>;
   hide = false;
   params: Object;
@@ -97,35 +95,19 @@ export class CreateLogPage_2Page {
 
     }
   ]
-  constructor(public navCtrl: NavController, 
-    public navParams: NavParams,
-    public loadingCtrl: LoadingController,
-    public modalCtrl:ModalController) {
-     
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public loadingCtrl: LoadingController,) {
   }
+
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CreateLogPage_2Page');
+    console.log('ionViewDidLoad PostAuthorizationPage');
   }
   loadingNFC(){
     const loader = this.loadingCtrl.create({
-      content: "Looking for nearby NFC Cards...",
+      content: "Checking for nearby NFC Cards...",
       duration: 3000
     });
     loader.present();
     this.hide = !this.hide;
-  }
-  openModal() {
-
-    let modal = this.modalCtrl.create(ModalPage);
-    modal.present();
-  }
-  enterActivity(item){
-    this.navCtrl.push(EnterActivityPage,{
-      params : item
-    })
-    console.log(this.params);
-  }
-  continue(){
-    this.navCtrl.push(PostAuthorizationPage);
   }
 }

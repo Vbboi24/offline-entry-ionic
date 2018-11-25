@@ -15,7 +15,10 @@ import { SiteInfoPage } from '../pages/site-info/site-info';
 import {CreateNewLogPage} from '../pages/create-new-log/create-new-log';
 import { UserProfilePage} from '../pages/user-profile/user-profile';
 import { ChartsModule } from 'ng2-charts';
-import {CreateLogPage_2Page} from '../pages/create-log-page-2/create-log-page-2'
+import {CreateLogPage_2Page} from '../pages/create-log-page-2/create-log-page-2';
+import {ModalPage}from '../pages/modal/modal';
+import {EnterActivityPage} from '../pages/enter-activity/enter-activity';
+import {PostAuthorizationPage} from '../pages/post-authorization/post-authorization';
 @NgModule({
   declarations: [
     MyApp,
@@ -27,7 +30,10 @@ import {CreateLogPage_2Page} from '../pages/create-log-page-2/create-log-page-2'
     CreateNewLogPage,
     SiteInfoPage,
     UserProfilePage,
-    CreateLogPage_2Page
+    CreateLogPage_2Page,
+    ModalPage,
+    EnterActivityPage,
+    PostAuthorizationPage
   ],
   imports: [
     BrowserModule,
@@ -46,7 +52,10 @@ import {CreateLogPage_2Page} from '../pages/create-log-page-2/create-log-page-2'
     CreateNewLogPage,
     SiteInfoPage,
     UserProfilePage,
-    CreateLogPage_2Page
+    CreateLogPage_2Page,
+    ModalPage,
+    EnterActivityPage,
+    PostAuthorizationPage
   ],
   providers: [
     StatusBar,

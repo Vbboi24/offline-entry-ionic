@@ -1,0 +1,53 @@
+<!--
+  Generated template for the EnterActivityPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>Enter Activity Book</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+        <ion-card>
+            <ion-item>
+                <ion-label color="primary" floating>Employee Name</ion-label>
+                <ion-input type="text" [(ngModel)]="item.title"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary" floating>Employee ID No.</ion-label>
+                <ion-input type="text" [(ngModel)]="item.id"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary" floating>Card UID</ion-label>
+                <ion-input type="text" [(ngModel)]="item.cardid"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary" floating>Activity Name</ion-label>
+                <ion-select [(ngModel)]="item.activity" interface="popover">
+                    <ion-option value="activity1">Activity 1</ion-option>
+                    <ion-option value="activity2">Activity 2</ion-option>
+                    <ion-option value="activity3">Activity 3</ion-option>
+                    <ion-option value="activity4">Activity 4</ion-option>
+                    <ion-option value="activity5">Activity 5</ion-option>
+                    <ion-option value="activity6">Activity 6</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary" floating>Start Time</ion-label>
+                <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="startTime"></ion-datetime>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary" floating>End Time</ion-label>
+                <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="endTime"></ion-datetime>
+            </ion-item>
+        </ion-card>
+    </ion-list>
+</ion-content>

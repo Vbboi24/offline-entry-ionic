@@ -1,5 +1,5 @@
 <!--
-  Generated template for the CreateLogPage_2Page page.
+  Generated template for the PostAuthorizationPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -9,9 +9,10 @@
         <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-        <ion-title>Pre-Authorization</ion-title>
+        <ion-title>Post-Authorization</ion-title>
     </ion-navbar>
 </ion-header>
+
 
 <ion-content padding>
     <button ion-button color="secondary" primary (click)="loadingNFC()">Scan for NFC</button>
@@ -23,10 +24,12 @@
             <button ion-item *ngFor="let item of nfcs" (click)="enterActivity(item)" icon-start>
                     <small>{{item.cardid}}</small>
                      {{ item.title }} 
-          </button>
+                     <ion-badge item-end> P
+                       
+                     </ion-badge>
+            </button>
         </ion-list>
-        <button ion-button color="secondary" (click)="continue()">Continue</button>
+        <button ion-button color="secondary">Continue</button>
         <button ion-button color="light" outline (click)="openModal()">Add Manual Entry</button>
     </div>
-
 </ion-content>
